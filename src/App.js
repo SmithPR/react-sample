@@ -1,25 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+import { Menu, Container, Header } from "semantic-ui-react";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Menu fixed="top" inverted>
+          <Container>
+            <Menu.Item as='a' header>
+              Example Site
+            </Menu.Item>
+          </Container>
+        </Menu>
+
+        <Container text style={{ marginTop: '7em' }}>
+          <Header as="h1" dividing>
+            Your Profile
+          </Header>
+          <p>View and edit your personal information.</p>
+        </Container>
+
       </div>
     );
   }
