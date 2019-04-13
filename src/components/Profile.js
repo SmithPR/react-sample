@@ -3,6 +3,7 @@ import { Container, Header, Modal } from "semantic-ui-react";
 
 import userService from '../services/userService.js';
 import NoData from './profile/NoData.js';
+import ModalForm from './profile/ModalForm.js';
 
 const useUser = function(){
     const [user, setUser] = useState();
@@ -60,7 +61,7 @@ const Profile = () => {
 
     return (
         <React.Fragment>
-            
+
             {/* Page header */}
             <Container text style={{ marginTop: '7em' }}>
                 <Header as="h1" dividing>
@@ -75,9 +76,7 @@ const Profile = () => {
             </Container>
 
             {/* Editor Modal */}
-            <Modal open={modalOpen} onClose={toggleModal}>
-                Test
-            </Modal>
+            <ModalForm user={user} saveUser={saveUser} modalOpen={modalOpen} toggleModal={toggleModal} />
 
         </React.Fragment>
     );
