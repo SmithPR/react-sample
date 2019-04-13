@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 
 import { Menu, Container } from "semantic-ui-react";
 
-import Profile from './components/Profile.js'
+import Profile from './components/Profile.js';
 
 const App = () => {
     return (
