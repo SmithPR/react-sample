@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Header } from "semantic-ui-react";
+import { Container, Header, Modal } from "semantic-ui-react";
 
 import userService from '../services/userService.js';
 import NoData from './profile/NoData.js';
@@ -33,7 +33,7 @@ const useUser = function(){
     return { user, saveUser, loading };
 };
 
-const getContent = function({user, loading}){
+const getContent = function({user, loading, toggleModal}){
     if(loading){
         //Show loading state
         return (
@@ -42,7 +42,7 @@ const getContent = function({user, loading}){
     }else if(!user){
         //Show no-data state
         return (
-            <NoData />
+            <NoData toggleModal={toggleModal} />
         );
     }else{
         //Show user profile
@@ -54,8 +54,14 @@ const getContent = function({user, loading}){
 
 const Profile = () => {
     const { user, saveUser, loading } = useUser();
+    const [ modalOpen, setModalOpen ] = useState(false);
+    
+    const toggleModal = () => setModalOpen(!modalOpen);
+
     return (
         <React.Fragment>
+            
+            {/* Page header */}
             <Container text style={{ marginTop: '7em' }}>
                 <Header as="h1" dividing>
                 Your Profile
@@ -63,9 +69,16 @@ const Profile = () => {
                 <p>View and edit your personal information.</p>
             </Container>
             
+            {/* Page content */}
             <Container text style={{ marginTop: '2em' }}>
-                { getContent({ user, loading }) }
+                { getContent({ user, loading, toggleModal }) }
             </Container>
+
+            {/* Editor Modal */}
+            <Modal open={modalOpen} onClose={toggleModal}>
+                Test
+            </Modal>
+
         </React.Fragment>
     );
 };
