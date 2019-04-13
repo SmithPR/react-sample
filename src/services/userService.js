@@ -1,9 +1,26 @@
 import { reject } from "q";
 
-const getUser = function(){
-    return new Promise( (resolve, reject) => {
 
-    });
+let cachedUser;
+
+/**
+ * getUser
+ * Fetches a user from the nonexistent back-end
+ * 
+ * @returns Promise which will be resolved with the user, or rejected if none found
+ */
+const getUser = function(){
+    if(cachedUser){
+        //Simulate a successful user fetch
+        return fetch('https://reqres.in/api/users/2').then(resp => {
+            return cachedUser;
+        });
+    }else{
+        //Simulate an unsuccessful user fetch
+        return fetch('https://reqres.in/api/users/23').then(resp=>{
+            return Promise.reject(new Error('User not found'));
+        });
+    }
 };
 
 /**
@@ -43,11 +60,20 @@ const saveUser = function(user){
         return false;
     }
 
-    return new Promise( (resolve, reject) => {
-
-    });
-
+    return saveUserInner(user);
 };
+
+/**
+ * saveUserInner
+ * Performs a POST or PUT request based on whether or not the user has already been saved
+ */
+const saveUserInner = function(user){
+    const method = cachedUser ? 'POST': 'PUT';
+
+    return fetch('https://reqres.in/api/users', { method }).then(()=>{
+        cachedUser = user;
+    });
+}
 
 export default {
     getUser,

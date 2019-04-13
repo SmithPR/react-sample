@@ -37,6 +37,4 @@ it.each(invalidUserArgs)('saveUser detects invalid args (): %#\n%p', user=>{
 
 it('saveUser returns a promise when called with valid args', ()=>{
     expect(userService.saveUser(validUserArg) instanceof Promise).toEqual(true);
-})
-
-it.each
+});
