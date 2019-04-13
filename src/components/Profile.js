@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-
 import { Container, Header } from "semantic-ui-react";
 
 import userService from '../services/userService.js';
+import NoData from './profile/NoData.js';
 
 const useUser = function(){
     const [user, setUser] = useState();
@@ -42,7 +42,7 @@ const getContent = function({user, loading}){
     }else if(!user){
         //Show no-data state
         return (
-            <p>No user found</p>
+            <NoData />
         );
     }else{
         //Show user profile
@@ -55,15 +55,18 @@ const getContent = function({user, loading}){
 const Profile = () => {
     const { user, saveUser, loading } = useUser();
     return (
-        <Container text style={{ marginTop: '7em' }}>
-            <Header as="h1" dividing>
-            Your Profile
-            </Header>
-            <p>View and edit your personal information.</p>
-            { getContent({ user, loading }) }
-            <p>Loading: { loading ? 'True': 'False' }</p>
-            <p>User: { user ? JSON.stringify(user) : 'Not found' }</p>
-        </Container>
+        <React.Fragment>
+            <Container text style={{ marginTop: '7em' }}>
+                <Header as="h1" dividing>
+                Your Profile
+                </Header>
+                <p>View and edit your personal information.</p>
+            </Container>
+            
+            <Container text style={{ marginTop: '2em' }}>
+                { getContent({ user, loading }) }
+            </Container>
+        </React.Fragment>
     );
 };
 
