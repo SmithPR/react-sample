@@ -1,6 +1,3 @@
-import { reject } from "q";
-
-
 let cachedUser;
 
 /**

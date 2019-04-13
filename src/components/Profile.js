@@ -18,7 +18,7 @@ const useUser = function(){
 
     //Save user function
     const saveUser = function(user){
-        const saveUserResult = saveUser(user);
+        const saveUserResult = userService.saveUser(user);
 
         if(saveUserResult){
             //Save is in progress
