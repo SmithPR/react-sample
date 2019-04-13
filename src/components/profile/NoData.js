@@ -7,7 +7,7 @@ const NoData = ({ toggleModal }) => {
         <Segment placeholder>
             <Header icon>
                 <Icon name='user outline' />
-                You have no saved profile.
+                Hi!  You must be new here.
             </Header>
             <Button primary onClick={toggleModal}>Create Profile</Button>
         </Segment>
