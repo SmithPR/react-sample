@@ -1,6 +1,8 @@
-This is a project showcasing React Hooks.  It is a simple form application, and uses [reqres.in](https://reqres.in) to simulate web service calls.
+## [React Sample](https://smithpr.github.io/react-sample)  
 
-When complete, the application will allow the user to view and edit a profile page.
+This is a project showcasing React Hooks.  It is a simple form application, and uses [reqres.in](https://reqres.in) to simulate web service calls.  When complete, the application will allow the user to view and edit a profile page.
+
+[![Build Status](https://travis-ci.org/SmithPR/react-sample.svg?branch=develop)](https://travis-ci.org/SmithPR/react-sample)
 
 ## Available Scripts
 
