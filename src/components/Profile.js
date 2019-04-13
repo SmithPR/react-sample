@@ -18,18 +18,14 @@ const useUser = function(){
 
     //Save user function
     const saveUser = function(user){
-        let saveUserResult;
-        setLoading(true);
-
-        saveUserResult = saveUser(user);
+        const saveUserResult = saveUser(user);
 
         if(saveUserResult){
+            //Save is in progress
             return saveUserResult
-                .then( ()=>setUser(user) )
-                .finally( ()=> setLoading(false) );
+                .then( ()=>setUser(user) );
         }else{
             //Call failed entry checks
-            setLoading(false);
             return Promise.reject();
         }
     }
@@ -37,7 +33,26 @@ const useUser = function(){
     return { user, saveUser, loading };
 };
 
-const App = () => {
+const getContent = function({user, loading}){
+    if(loading){
+        //Show loading state
+        return (
+            <p>Loading&hellip;</p>
+        );
+    }else if(!user){
+        //Show no-data state
+        return (
+            <p>No user found</p>
+        );
+    }else{
+        //Show user profile
+        return (
+            <p>{JSON.stringify(user)}</p>
+        );
+    }
+};
+
+const Profile = () => {
     const { user, saveUser, loading } = useUser();
     return (
         <Container text style={{ marginTop: '7em' }}>
@@ -45,10 +60,11 @@ const App = () => {
             Your Profile
             </Header>
             <p>View and edit your personal information.</p>
+            { getContent({ user, loading }) }
             <p>Loading: { loading ? 'True': 'False' }</p>
             <p>User: { user ? JSON.stringify(user) : 'Not found' }</p>
         </Container>
     );
 };
 
-export default App;
+export default Profile;
