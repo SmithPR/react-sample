@@ -16,6 +16,7 @@ const useUser = function(){
     useEffect(()=>{
         userService.getUser()
             .then( setUser )
+            .catch( err=>true )
             .finally( ()=>setLoading(false) );
     }, []);
 
