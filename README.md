@@ -6,9 +6,9 @@ This is a project showcasing React Hooks.  It is a simple form application, and 
 
 ### About the project
 
-This is a small application, and does not include any state management libraries.  In the interest of separating concerns, a stateful service performs all API requests.  The Semantic UI library is used to set the look and feel of the application, instead of writing a lot of app-specific CSS.  
+This is a small application, and does not include any state management libraries.  In the interest of separating concerns, a stateful service performs all API requests.  The Semantic UI library is used to set the look and feel of the application, instead of writing a lot of app-specific CSS.
 
-Due to time constraints, testing and form validation are both rather rudimentary.
+Due to time constraints, testing and form validation are both rather rudimentary.  Were time not an issue, using a field validation library to enforce constraints and format values as the user types would be ideal.
 
 ## Available Scripts
 
