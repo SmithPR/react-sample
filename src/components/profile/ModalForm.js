@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form, Checkbox } from "semantic-ui-react";
+import { DateInput } from 'semantic-ui-calendar-react';
 
 const ModalForm = ({ modalOpen, toggleModal, user }) => {
-
     return (
         <Modal open={modalOpen} onClose={toggleModal}>
             <Modal.Header>{user ? 'Update Profile' : 'Create Profile'}</Modal.Header>
@@ -20,7 +20,9 @@ const ModalForm = ({ modalOpen, toggleModal, user }) => {
                     </Form.Group>
 
                     <Form.Group inline style={{marginTop: '3em'}}>
-                        <Form.Input required label="Date of birth" placeholder="Date of birth" />
+                        <label>Date of birth</label>
+                        <DateInput name="date" value={null} popupPosition="right"
+                            placeholder="Date of birth" closable startMode="year"/>
                         <Form.Input label="Age" placeholder="Age" />
                         <Form.Input label="Height" placeholder="Height" />
                     </Form.Group>
