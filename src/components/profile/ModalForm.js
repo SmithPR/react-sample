@@ -106,7 +106,7 @@ const ModalForm = ({ modalOpen, toggleModal, user, saveUser }) => {
                             <option value="ms">Master's Degree</option>
                             <option value="phd">Doctorate</option>
                         </Form.Field>
-                        <Form.Input label="Specialization" placeholder="Specialization" 
+                        <Form.Input label="Specialization" placeholder="Specialization" disabled={fieldVals.degreeType==='hs'}
                             name="degreeField" onChange={onChangeHandler} value={fieldVals.degreeField}/>
                         <Form.Field control={Checkbox} label={{ children: 'Diploma Received'}} 
                             name="degreeCompleted" onChange={checkboxOnChangeHandler} checked={fieldVals.degreeCompleted}/>
