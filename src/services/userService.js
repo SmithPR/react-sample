@@ -34,7 +34,8 @@ const getUser = function(){
  * User may also contain the following optional props:
  *  age             number
  *  height          number (inches)
- *  degree          object { type, field }
+ *  degreeType      string
+ *  degreeField     string
  *  degreeCompleted boolean
  * 
  * @param {*} user  object
