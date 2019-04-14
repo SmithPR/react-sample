@@ -28,7 +28,7 @@ const ModalForm = ({ modalOpen, toggleModal, user, saveUser }) => {
     //Initialize form fields with current user data
     const [fieldVals, setFieldVals] = useState(user || {
         firstName: '', lastName: '', phoneNumber: '',
-        address: '', dateOfBirth: '', degreeType: 'hs',
+        address: '', dateOfBirth: '', degreeType: '',
         degreeField: '', degreeCompleted: false
     });
 
@@ -101,12 +101,14 @@ const ModalForm = ({ modalOpen, toggleModal, user, saveUser }) => {
                     <Form.Group inline style={{marginTop: '3em'}}>
                         <Form.Field label="Highest level of Education" control="select"
                             name="degreeType" onChange={onChangeHandler} value={fieldVals.degreeType}>
+                            <option value=""></option>
                             <option value="hs">High School</option>
                             <option value="bs">Bachelor's Degree</option>
                             <option value="ms">Master's Degree</option>
                             <option value="phd">Doctorate</option>
                         </Form.Field>
-                        <Form.Input label="Specialization" placeholder="Specialization" disabled={fieldVals.degreeType==='hs'}
+                        <Form.Input label="Specialization" placeholder="Specialization"
+                            disabled={!fieldVals.degreeType || fieldVals.degreeType==='hs'}
                             name="degreeField" onChange={onChangeHandler} value={fieldVals.degreeField}/>
                         <Form.Field control={Checkbox} label={{ children: 'Diploma Received'}} 
                             name="degreeCompleted" onChange={checkboxOnChangeHandler} checked={fieldVals.degreeCompleted}/>
