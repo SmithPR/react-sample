@@ -3,14 +3,15 @@ import { Header, Segment, Icon, Grid } from "semantic-ui-react";
 
 const formatDegreeType = degreeType => {
     switch(degreeType){
-        case 'hs':
-            return 'High School';
         case 'bs':
             return 'Bachelor\'s Degree';
         case 'ms':
             return 'Master\'s Degree';
         case 'phd':
-            return 'Doctorate'
+            return 'Doctorate';
+        case 'hs':
+        default:
+            return 'High School';
     }
 };
 
