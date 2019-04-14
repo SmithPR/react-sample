@@ -4,6 +4,7 @@ import { Container, Header } from "semantic-ui-react";
 import userService from '../services/userService.js';
 import ProfileView from './profile/ProfileView.js';
 import NoData from './profile/NoData.js';
+import Loading from './profile/Loading.js';
 import ModalForm from './profile/ModalForm.js';
 
 const useUser = function(){
@@ -39,7 +40,7 @@ const getContent = function({user, loading, toggleModal}){
     if(loading){
         //Show loading state
         return (
-            <p>Loading&hellip;</p>
+            <Loading />
         );
     }else if(!user){
         //Show no-data state
