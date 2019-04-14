@@ -27,7 +27,7 @@ const useUser = function(){
                 .then( ()=>setUser(user) );
         }else{
             //Call failed entry checks
-            return Promise.reject();
+            return Promise.reject('Form invalid');
         }
     }
 
