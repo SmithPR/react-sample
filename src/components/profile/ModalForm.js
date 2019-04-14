@@ -12,12 +12,13 @@ const ModalForm = ({ modalOpen, toggleModal, user }) => {
                 <Form id="modalForm" onSubmit={()=>{console.log('Form submitted')}}>
 
                     <Form.Group widths="equal">
-                        <Form.Input fluid required label="First name" placeholder="First name" />
-                        <Form.Input fluid required label="Last name" placeholder="Last name" />
+                        <Form.Input fluid required label="First name" placeholder="First name" pattern="[A-Za-z]+" />
+                        <Form.Input fluid required label="Last name" placeholder="Last name" pattern="[A-Za-z]+" />
                     </Form.Group>
 
                     <Form.Group widths="equal">
-                        <Form.Input fluid required label="Phone number" placeholder="Phone number" />
+                        <Form.Input fluid required label="Phone number" placeholder="10-digit Phone number"
+                            pattern="[0-9]+" minLength="10" maxLength="10" type="tel" />
                         <Form.Input fluid required label="Address" placeholder="Address" />
                     </Form.Group>
 
@@ -25,8 +26,8 @@ const ModalForm = ({ modalOpen, toggleModal, user }) => {
                         <DateInput label="Date of birth" required name="date"
                             value={''} popupPosition="right center"
                             placeholder="Date of birth" closable startMode="year"/>
-                        <Form.Input label="Age" placeholder="Age" />
-                        <Form.Input label="Height" placeholder="Height" />
+                        <Form.Input type="number" label="Age" placeholder="Age" />
+                        <Form.Input type="number" label="Height" placeholder="Height (in.)" />
                     </Form.Group>
 
                     <Form.Group inline style={{marginTop: '3em'}}>
