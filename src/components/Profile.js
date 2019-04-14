@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Header } from "semantic-ui-react";
 
 import userService from '../services/userService.js';
+import ProfileView from './profile/ProfileView.js';
 import NoData from './profile/NoData.js';
 import ModalForm from './profile/ModalForm.js';
 
@@ -48,7 +49,7 @@ const getContent = function({user, loading, toggleModal}){
     }else{
         //Show user profile
         return (
-            <p>{JSON.stringify(user)}</p>
+            <ProfileView user={user} toggleModal={toggleModal} />
         );
     }
 };
