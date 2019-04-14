@@ -91,10 +91,12 @@ const ModalForm = ({ modalOpen, toggleModal, user, saveUser }) => {
                             placeholder="Date of birth" closable startMode="year" dateFormat="MMMM D, YYYY"/>
 
                         {/* Age */}
-                        <Form.Input type="number" label="Age" placeholder="Age" />
+                        <Form.Input type="number" label="Age" placeholder="Age"
+                            name="age" onChange={onChangeHandler} value={fieldVals.age} />
 
                         {/* Height */}
-                        <Form.Input type="number" label="Height" placeholder="Height (in.)" />
+                        <Form.Input type="number" label="Height" placeholder="Height (in.)"
+                            name="height" onChange={onChangeHandler} value={fieldVals.height} />
                     </Form.Group>
                     
                     {/* Education */}
