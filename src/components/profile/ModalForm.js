@@ -4,7 +4,9 @@ import { DateInput } from 'semantic-ui-calendar-react';
 
 const ModalForm = ({ modalOpen, toggleModal, user }) => {
     return (
-        <Modal open={modalOpen} onClose={toggleModal}>
+        <Modal open={modalOpen} onClose={toggleModal} closeOnEscape={false} 
+            closeOnDimmerClick={false} >
+
             <Modal.Header>{user ? 'Update Profile' : 'Create Profile'}</Modal.Header>
             <Modal.Content scrolling>
                 <Form>
@@ -42,7 +44,7 @@ const ModalForm = ({ modalOpen, toggleModal, user }) => {
             </Modal.Content>
             <Modal.Actions>
                 <Button primary>Save</Button>
-                <Button>Cancel</Button>
+                <Button onClick={toggleModal}>Cancel</Button>
             </Modal.Actions>
         </Modal>
     );
