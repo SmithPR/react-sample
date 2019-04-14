@@ -59,30 +59,45 @@ const ModalForm = ({ modalOpen, toggleModal, user, saveUser }) => {
                     }
 
                     <Form.Group widths="equal">
+
+                        {/* First Name */}
                         <Form.Input fluid required label="First name" placeholder="First name" 
                             name="firstName" onChange={onChangeHandler} value={fieldVals.firstName}
                             pattern="[A-Za-z]+" />
+
+                        {/* Last Name */}
                         <Form.Input fluid required label="Last name" placeholder="Last name"
                             name="lastName" onChange={onChangeHandler} value={fieldVals.lastName}
                             pattern="[A-Za-z]+" />
                     </Form.Group>
 
                     <Form.Group widths="equal">
+                        
+                        {/* Phone Number */}
                         <Form.Input fluid required label="Phone number" placeholder="10-digit Phone number"
                             name="phoneNumber" onChange={onChangeHandler} value={fieldVals.phoneNumber}
                             pattern="[0-9]+" minLength="10" maxLength="10" type="tel" />
+                            
+                        {/* Address */}
                         <Form.Input fluid required label="Address" placeholder="Address" 
                             name="address" onChange={onChangeHandler} value={fieldVals.address}/>
                     </Form.Group>
 
                     <Form.Group inline style={{marginTop: '3em'}}>
+                        
+                        {/* Date of birth */}
                         <DateInput label="Date of birth" required popupPosition="right center"
                             name="dateOfBirth" onChange={onChangeHandler} value={fieldVals.dateOfBirth || ''}
-                            placeholder="Date of birth" closable startMode="year"/>
+                            placeholder="Date of birth" closable startMode="year" dateFormat="MMMM D, YYYY"/>
+
+                        {/* Age */}
                         <Form.Input type="number" label="Age" placeholder="Age" />
+
+                        {/* Height */}
                         <Form.Input type="number" label="Height" placeholder="Height (in.)" />
                     </Form.Group>
-
+                    
+                    {/* Education */}
                     <Form.Group inline style={{marginTop: '3em'}}>
                         <Form.Field label="Highest level of Education" control="select"
                             name="degreeType" onChange={onChangeHandler} value={fieldVals.degreeType}>

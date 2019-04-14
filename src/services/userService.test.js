@@ -3,7 +3,7 @@ import userService from './userService';
 const validUserArg = {
     firstName: 'Sally',
     lastName: 'Smith',
-    phone: '1234567890',
+    phoneNumber: '1234567890',
     address: '123 First St',
     dateOfBirth: 'June 1, 1970'
 };
@@ -15,8 +15,8 @@ const invalidUserArgs = [
     { fistName: 'Sue' },
     { ...validUserArg, firstName: null },
     { ...validUserArg, lastName: '' },
-    { ...validUserArg, phone: '123' },
-    { ...validUserArg, phone: 1234567890 },
+    { ...validUserArg, phoneNumber: '123' },
+    { ...validUserArg, phoneNumber: 1234567890 },
     { ...validUserArg, address: 5 },
     { ...validUserArg, address: '' }
 ];
