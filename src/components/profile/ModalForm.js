@@ -114,7 +114,8 @@ const ModalForm = ({ modalOpen, toggleModal, user, saveUser }) => {
                             disabled={!fieldVals.degreeType || fieldVals.degreeType==='hs'}
                             name="degreeField" onChange={onChangeHandler} value={fieldVals.degreeField}/>
                         <Form.Field control={Checkbox} label={{ children: 'Diploma Received'}} 
-                            name="degreeCompleted" onChange={checkboxOnChangeHandler} checked={fieldVals.degreeCompleted}/>
+                            name="degreeCompleted" onChange={checkboxOnChangeHandler} checked={fieldVals.degreeCompleted}
+                            disabled={!fieldVals.degreeType} />
                     </Form.Group>
                     
                 </Form>
