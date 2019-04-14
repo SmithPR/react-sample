@@ -9,7 +9,7 @@ const ModalForm = ({ modalOpen, toggleModal, user }) => {
 
             <Modal.Header>{user ? 'Update Profile' : 'Create Profile'}</Modal.Header>
             <Modal.Content scrolling>
-                <Form>
+                <Form id="modalForm" onSubmit={()=>{console.log('Form submitted')}}>
 
                     <Form.Group widths="equal">
                         <Form.Input fluid required label="First name" placeholder="First name" />
@@ -22,8 +22,8 @@ const ModalForm = ({ modalOpen, toggleModal, user }) => {
                     </Form.Group>
 
                     <Form.Group inline style={{marginTop: '3em'}}>
-                        <label>Date of birth</label>
-                        <DateInput name="date" value={null} popupPosition="right"
+                        <DateInput label="Date of birth" required name="date"
+                            value={''} popupPosition="right center"
                             placeholder="Date of birth" closable startMode="year"/>
                         <Form.Input label="Age" placeholder="Age" />
                         <Form.Input label="Height" placeholder="Height" />
@@ -43,7 +43,7 @@ const ModalForm = ({ modalOpen, toggleModal, user }) => {
                 </Form>
             </Modal.Content>
             <Modal.Actions>
-                <Button primary>Save</Button>
+                <Button primary type="submit" form="modalForm">Save</Button>
                 <Button onClick={toggleModal}>Cancel</Button>
             </Modal.Actions>
         </Modal>
