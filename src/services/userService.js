@@ -44,14 +44,19 @@ const getUser = function(){
  * @returns False if entry checks fail
  */
 const saveUser = function(user){
-    //Entry checks
+    
+    //Handling for Date objects
+    if(user && user.dateOfBirth instanceof Date){
+        user.dateOfBirth = user.dateOfBirth.toString();
+    }
 
+    //Entry checks
     if(!user ||
         !user.firstName || typeof user.firstName !== 'string' || !user.firstName.length ||
         !user.lastName || typeof user.lastName !== 'string' || !user.lastName.length ||
         !user.phone || typeof user.phone !== 'string' || user.phone.length !== 10 ||
         !user.address || typeof user.address !== 'string' || !user.address.length ||
-        !user.dateOfBirth || !(user.dateOfBirth instanceof Date)
+        !user.dateOfBirth || typeof user.dateOfBirth !== 'string' || !Date.parse(user.dateOfBirth)
     ){
         console.error('userService.saveUser called with an invalid user object');
         return false;

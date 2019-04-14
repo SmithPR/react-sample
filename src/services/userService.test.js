@@ -5,7 +5,7 @@ const validUserArg = {
     lastName: 'Smith',
     phone: '1234567890',
     address: '123 First St',
-    dateOfBirth: new Date()
+    dateOfBirth: 'June 1, 1970'
 };
 
 const invalidUserArgs = [
@@ -18,8 +18,7 @@ const invalidUserArgs = [
     { ...validUserArg, phone: '123' },
     { ...validUserArg, phone: 1234567890 },
     { ...validUserArg, address: 5 },
-    { ...validUserArg, address: '' },
-    { ...validUserArg, dateOfBirth: 'June 1, 1970' }
+    { ...validUserArg, address: '' }
 ];
 
 it('exposes the correct functions', ()=>{
@@ -37,4 +36,8 @@ it.each(invalidUserArgs)('saveUser detects invalid args (): %#\n%p', user=>{
 
 it('saveUser returns a promise when called with valid args', ()=>{
     expect(userService.saveUser(validUserArg) instanceof Promise).toEqual(true);
+});
+
+it('saveUser accepts date of birth as a Date', ()=>{
+    expect(userService.saveUser({ ...validUserArg, dateOfBirth: new Date() }) instanceof Promise).toEqual(true);
 });
