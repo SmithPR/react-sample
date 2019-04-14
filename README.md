@@ -4,6 +4,12 @@ This is a project showcasing React Hooks.  It is a simple form application, and 
 
 [![Build Status](https://travis-ci.org/SmithPR/react-sample.svg?branch=develop)](https://travis-ci.org/SmithPR/react-sample)
 
+### About the project
+
+This is a small application, and does not include any state management libraries.  In the interest of separating concerns, a stateful service performs all API requests.  The Semantic UI library is used to set the look and feel of the application, instead of writing a lot of app-specific CSS.  
+
+Due to time constraints, testing and form validation are both rather rudimentary.
+
 ## Available Scripts
 
 In the project directory, you can run:
