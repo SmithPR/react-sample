@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Button, Form, Checkbox } from "semantic-ui-react";
+import { Modal, Button, Form, Checkbox, Message } from "semantic-ui-react";
 import { DateInput } from 'semantic-ui-calendar-react';
 
 const useSaveCall = (saveFn, onSuccess) => {
@@ -16,7 +16,7 @@ const useSaveCall = (saveFn, onSuccess) => {
             })
             .catch(err=>{
                 setSaving(false);
-                setSaveError(err.message);
+                setSaveError(err);
             });
     };
 
@@ -52,7 +52,11 @@ const ModalForm = ({ modalOpen, toggleModal, user, saveUser }) => {
 
             <Modal.Header>{user ? 'Update Profile' : 'Create Profile'}</Modal.Header>
             <Modal.Content scrolling>
-                <Form id="modalForm" onSubmit={()=>save(fieldVals)}>
+                <Form id="modalForm" onSubmit={()=>save(fieldVals)} error={!!saveError}>
+                    
+                    { saveError &&
+                        <Message error header="Oops!" content={saveError}></Message>
+                    }
 
                     <Form.Group widths="equal">
                         <Form.Input fluid required label="First name" placeholder="First name" 
@@ -96,7 +100,7 @@ const ModalForm = ({ modalOpen, toggleModal, user, saveUser }) => {
                 </Form>
             </Modal.Content>
             <Modal.Actions>
-                <Button primary type="submit" form="modalForm">Save</Button>
+                <Button primary type="submit" form="modalForm" loading={saving}>Save</Button>
                 <Button onClick={toggleModal}>Cancel</Button>
             </Modal.Actions>
         </Modal>

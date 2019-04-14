@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Header, Modal } from "semantic-ui-react";
+import { Container, Header } from "semantic-ui-react";
 
 import userService from '../services/userService.js';
 import NoData from './profile/NoData.js';
@@ -27,7 +27,7 @@ const useUser = function(){
                 .then( ()=>setUser(user) );
         }else{
             //Call failed entry checks
-            return Promise.reject('Form invalid');
+            return Promise.reject('The form is invalid.  Please check all fields and try again.');
         }
     }
 
