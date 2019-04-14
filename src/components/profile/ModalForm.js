@@ -28,8 +28,9 @@ const ModalForm = ({ modalOpen, toggleModal, user, saveUser }) => {
     //Initialize form fields with current user data
     const [fieldVals, setFieldVals] = useState(user || {
         firstName: '', lastName: '', phoneNumber: '',
-        address: '', dateOfBirth: '', degreeType: '',
-        degreeField: '', degreeCompleted: false
+        address: '', dateOfBirth: '', age: '',
+        height: '', degreeType: '', degreeField: '',
+        degreeCompleted: false
     });
 
     //Use hook to manage save/saving state
