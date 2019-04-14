@@ -32,7 +32,7 @@ const ProfileView = ({user, toggleModal}) => (
                     {/* Phone Number */}
                     <Grid.Column>
                         <b>Phone number:</b>&nbsp; {
-                            `(${user.phoneNumber.substring(0,3)})${user.phoneNumber.substring(3,7)}-${user.phoneNumber.substring(7)}`
+                            `(${user.phoneNumber.substring(0,3)})${user.phoneNumber.substring(3,6)}-${user.phoneNumber.substring(6)}`
                         }
                     </Grid.Column>
                     
@@ -54,6 +54,7 @@ const ProfileView = ({user, toggleModal}) => (
                     <Grid.Column>
                         <b>Date of Birth:</b>&nbsp; {user.dateOfBirth}
                     </Grid.Column>
+
                 </Grid>
             </Segment>
             { user.degreeType && 
