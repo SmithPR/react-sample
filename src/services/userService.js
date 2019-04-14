@@ -1,6 +1,3 @@
-import { reject } from "q";
-
-
 let cachedUser;
 
 /**
@@ -30,14 +27,15 @@ const getUser = function(){
  * The user parameter has the following required properties:
  *  firstName       string
  *  lastName        string
- *  phone           string
+ *  phoneNumber     string
  *  address         string
- *  dateOfBirth     Date
+ *  dateOfBirth     Date or string
  * 
  * User may also contain the following optional props:
  *  age             number
  *  height          number (inches)
- *  degree          object { type, field }
+ *  degreeType      string
+ *  degreeField     string
  *  degreeCompleted boolean
  * 
  * @param {*} user  object
@@ -47,14 +45,19 @@ const getUser = function(){
  * @returns False if entry checks fail
  */
 const saveUser = function(user){
-    //Entry checks
 
+    //Handling for Date objects
+    if(user && user.dateOfBirth && user.dateOfBirth instanceof Date){
+        user.dateOfBirth = user.dateOfBirth.toString();
+    }
+
+    //Entry checks
     if(!user ||
         !user.firstName || typeof user.firstName !== 'string' || !user.firstName.length ||
         !user.lastName || typeof user.lastName !== 'string' || !user.lastName.length ||
-        !user.phone || typeof user.phone !== 'string' || user.phone.length !== 10 ||
+        !user.phoneNumber || typeof user.phoneNumber !== 'string' || user.phoneNumber.length !== 10 ||
         !user.address || typeof user.address !== 'string' || !user.address.length ||
-        !user.dateOfBirth || !(user.dateOfBirth instanceof Date)
+        !user.dateOfBirth || typeof user.dateOfBirth !== 'string' || !Date.parse(user.dateOfBirth)
     ){
         console.error('userService.saveUser called with an invalid user object');
         return false;
