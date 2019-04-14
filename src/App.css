@@ -1,3 +1,9 @@
 html, body {
   background: #f7f7f7 !important;
 }
+
+body {
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
